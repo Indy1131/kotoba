@@ -11,7 +11,7 @@ export default function Reader() {
 
   return (
     <div className="flex w-full h-full flex-col gap-2 items-center">
-      <div className="flex w-[min(calc(100%-64px),1000px)] gap-2 bg-page border-5 border-cardback p-2 rounded-2xl">
+      <div className="flex w-[min(calc(100%-64px),1000px)] gap-2 bg-light border-1 border-light-outline p-2 rounded-2xl">
         <Button text="Button" className="w-[4rem]" />
         <Button text="Reset" className="w-[6rem]" accent="red" />
         <div className="flex-1 bg-light py-2 px-4 text-xs rounded-xl border-1 border-light-outline">

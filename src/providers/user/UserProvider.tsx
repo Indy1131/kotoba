@@ -3,7 +3,7 @@ import { UserContext, type User } from "./UserContext";
 
 const SAMPLE_USER: User = {
   username: "Nicholas",
-  language: "Chinese",
+  language: "English",
 };
 
 export function UserProvider({ children }: { children: ReactNode }) {

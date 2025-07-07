@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 export type User = {
   username: string;
-  language: "Chinese" | "english";
+  language: "Chinese" | "English";
 };
 
 type UserContextType = {

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Flashlight from "./Flashlight";
 
@@ -7,11 +7,14 @@ const POINT_COUNT = 16;
 export default function MicButton() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [transcript, setTranscript] = useState("");
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
   const micStreamRef = useRef<MediaStream | null>(null);
   const animationRef = useRef<number | null>(null);
+
+  useEffect(() => {}, []);
 
   const draw = () => {
     const canvas = canvasRef.current;
@@ -51,7 +54,7 @@ export default function MicButton() {
         const x = i * segmentWidth;
 
         const padding = 50;
-        let y = height / 2 - (volume + 0.5) * height * 0.2;
+        let y = height / 1 - (volume + 0.5) * height * 0.3;
 
         // Clamp y to fit inside the canvas (with padding)
         // y = Math.min(Math.max(y, padding), height - padding);
@@ -93,6 +96,7 @@ export default function MicButton() {
   }
 
   async function handleRecordClick() {
+    setIsRecording(true);
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: {
         noiseSuppression: true,
@@ -110,7 +114,6 @@ export default function MicButton() {
     source.connect(analyser);
     analyserRef.current = analyser;
     draw();
-    setIsRecording(true);
   }
 
   function handleStopClick() {
@@ -131,17 +134,17 @@ export default function MicButton() {
           className="absolute z-10 w-full h-full pointer-events-none"
         />
       </div>
-      <div className="flex gap-2 items-center justify-center my-4">
+      <div className="flex gap-2 items-center justify-center my-4 bg-cardback p-2 rounded-2xl border-1 border-outline">
         <Button
           text="Record"
-          className="w-[8rem]"
+          className="flex-1"
           // accent="green"
           onClick={handleRecordClick}
           disabled={isRecording}
         />
         <Button
           text="Stop"
-          className="w-[4rem]"
+          className="w-[8rem]"
           accent="red"
           onClick={handleStopClick}
           disabled={!isRecording}
