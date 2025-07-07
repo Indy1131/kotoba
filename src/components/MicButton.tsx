@@ -1,4 +1,6 @@
 import { useRef, useState } from "react";
+import Button from "./Button";
+import Flashlight from "./Flashlight";
 
 const POINT_COUNT = 16;
 
@@ -37,8 +39,8 @@ export default function MicButton() {
 
       ctx.clearRect(0, 0, width, height);
       ctx.beginPath();
-      ctx.lineWidth = 5;
-      ctx.strokeStyle = "#2C7FFF";
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#409af5";
 
       const points: [number, number][] = [];
       const segmentWidth = width / (POINT_COUNT - 1);
@@ -100,52 +102,50 @@ export default function MicButton() {
       },
     });
     micStreamRef.current = stream;
-
     const audioCtx = new AudioContext();
     audioContextRef.current = audioCtx;
-
     const source = audioCtx.createMediaStreamSource(stream);
     const analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
-
     source.connect(analyser);
     analyserRef.current = analyser;
-
     draw();
     setIsRecording(true);
   }
 
   function handleStopClick() {
     setIsRecording(false);
-
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
     micStreamRef.current?.getTracks().forEach((track) => track.stop());
     audioContextRef.current?.close();
   }
 
   return (
-    <form onSubmit={handleSubmit} className="inline-block border">
-      <canvas
-        ref={canvasRef}
-        height={400}
-        width={400}
-        className="bg-white rounded"
-      />
+    <form onSubmit={handleSubmit} className="inline-block">
+      <div className="overflow-hidden w-[600px] h-[600px] relative bg-gradient-to-t from-midlight rounded-2xl to-highlight border-primary border-1">
+        <Flashlight className="rounded-2xl z-10" color="white" />
+        <canvas
+          ref={canvasRef}
+          height={600}
+          width={600}
+          className="absolute z-10 w-full h-full pointer-events-none"
+        />
+      </div>
       <div className="flex gap-2 items-center justify-center my-4">
-        <button
+        <Button
+          text="Record"
+          className="w-[8rem]"
+          // accent="green"
           onClick={handleRecordClick}
-          className="bg-green-400 p-2 cursor-pointer disabled:brightness-50 border-b-4 disabled:border-0 disabled:mt-[4px] border-green-500 rounded-sm transition-all"
           disabled={isRecording}
-        >
-          Record
-        </button>
-        <button
+        />
+        <Button
+          text="Stop"
+          className="w-[4rem]"
+          accent="red"
           onClick={handleStopClick}
-          className="bg-red-400 p-2 cursor-pointer disabled:brightness-50 border-b-4 disabled:border-0 disabled:mt-[4px] border-red-500 rounded-sm transition-all"
           disabled={!isRecording}
-        >
-          Stop
-        </button>
+        />
       </div>
     </form>
   );

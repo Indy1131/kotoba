@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+:root {
+  --light-shadow: #2966ff;
+}
+
 @theme {
-  --color-primary: #409af5;
+  --color-primary: #2966ff;
+  --color-highlight: #f4f7ff;
+  --color-midlight: #dee6fc;
+
+  --color-positive: #14db8b;
+  --color-positive-highlight: #c4ffe8;
+  --color-positive-midlight: #95fcd3;
+
+  --color-negative: #fc3d76;
+  --color-negative-highlight: #fae6ec;
+  --color-negative-midlight: #fcd2de;
+
+  --color-outline: #868581;
+  --color-light-outline: #ececed;
+
+  --color-page: #fffdf6;
+  --color-cardback: #f2f0e9;
+
+  --color-light: #ffffff;
 }

@@ -2,8 +2,8 @@ import { useState, type ReactNode } from "react";
 import { UserContext, type User } from "./UserContext";
 
 const SAMPLE_USER: User = {
-  username: "sampleUsername",
-  language: "chinese",
+  username: "Nicholas",
+  language: "Chinese",
 };
 
 export function UserProvider({ children }: { children: ReactNode }) {
