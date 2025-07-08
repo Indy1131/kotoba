@@ -5,7 +5,7 @@ type Props = {
   icon?: string;
   disabled?: boolean;
   className?: string;
-  accent?: "default" | "green" | "red";
+  accent?: "default" | "green" | "red" | "orange";
   onClick: () => void;
 };
 
@@ -13,6 +13,7 @@ const colors = {
   default: ["from-midlight", "to-highlight", "text-primary"],
   green: ["from-positive-midlight", "to-positive-highlight", "text-positive"],
   red: ["from-negative-midlight", "to-negative-highlight", "text-negative"],
+  orange: ["from-hint-midlight", "to-hint-highlight", "text-hint"],
 };
 
 export default function Button({

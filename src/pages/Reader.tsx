@@ -18,7 +18,7 @@ export default function Reader() {
         <div className="flex-1 bg-light py-2 px-4 text-xs rounded-xl border-1 border-light-outline">
           <h1 className="flex items-center gap-2">
             Listening for <Chip text="English" icon="uk.svg" /> with a{" "}
-            <Chip text="Standard American" icon="usa.svg" /> dialect.
+            <Chip text="Standard American" accent="orange" icon="usa.svg" /> dialect.
           </h1>
         </div>
         <Button icon="settings.svg" />

@@ -170,6 +170,19 @@ export default function MicButton() {
       </div>
       <div className="flex gap-2 items-center justify-center my-4 bg-cardback p-2 rounded-2xl border-1 border-outline">
         <Button
+          icon="play.svg"
+          // accent="orange"
+          // onClick={handleRecordClick}‰
+          disabled={isRecording || transcript == ""}
+        />
+        <Button
+          icon="pause.svg"
+          // accent="orange"
+          // onClick={handleRecordClick}‰
+          // className="w-[4rem]"
+          disabled={isRecording || transcript == ""}
+        />
+        <Button
           text="Record"
           icon="record.svg"
           className="flex-1"
