@@ -40,13 +40,6 @@ const circleSize = 32; // px
 
 export default function About() {
     const [current, setCurrent] = useState(0);
-    // const vowelPositions = [
-    //     { x: 20, y: 30 }, // Example: i
-    //     { x: 50, y: 20 }, // Example: e
-    //     { x: 80, y: 40 }, // Example: a
-    //     { x: 60, y: 70 }, // Example: o
-    //     { x: 30, y: 80 }, // Example: u
-    // ];
 
     const vowelPositions = [
         { symbol: "i", x: 13, y: 13 },
