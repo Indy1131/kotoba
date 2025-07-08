@@ -159,7 +159,7 @@ export default function MicButton() {
           </>
         ) : (
           <div className="w-full h-full flex justify-center items-center p-10 pointer-events-none select-none">
-            <h1 className="font-medium z-10 text-primary text-xl pointer-events-none">
+            <h1 className="font-medium z-10 text-primary text-xl pointer-events-none fade-in transition-all">
               <Tooltip text="Pl" />
               ease call Stella. <Tooltip text="Ask" /> her to bring these{" "}
               <Tooltip text="th" />
