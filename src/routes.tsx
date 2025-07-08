@@ -10,7 +10,7 @@ export default [
     children: [
       { path: "/", element: <Home /> },
       {
-        path: "/reader",
+        path: "/record",
         element: (
           <ProtectedRoute>
             <Reader />

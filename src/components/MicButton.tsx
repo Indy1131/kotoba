@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import Flashlight from "./Flashlight";
+import { startRecognition } from "../utilities/recording";
+import Tooltip from "./Tooltip";
+import Svg from "./Svg";
 
 const POINT_COUNT = 16;
 
@@ -8,6 +11,8 @@ export default function MicButton() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [isRecording, setIsRecording] = useState(false);
   const [transcript, setTranscript] = useState("");
+
+  const recognitionRef = useRef(null);
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -96,6 +101,7 @@ export default function MicButton() {
   }
 
   async function handleRecordClick() {
+    setTranscript("");
     setIsRecording(true);
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: {
@@ -114,9 +120,12 @@ export default function MicButton() {
     source.connect(analyser);
     analyserRef.current = analyser;
     draw();
+
+    startRecognition(setTranscript, recognitionRef);
   }
 
   function handleStopClick() {
+    setTranscript("set");
     setIsRecording(false);
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
     micStreamRef.current?.getTracks().forEach((track) => track.stop());
@@ -127,16 +136,42 @@ export default function MicButton() {
     <form onSubmit={handleSubmit} className="inline-block">
       <div className="overflow-hidden w-[600px] h-[600px] relative bg-gradient-to-t from-midlight rounded-2xl to-highlight border-primary border-1">
         <Flashlight className="rounded-2xl z-10" color="white" />
-        <canvas
-          ref={canvasRef}
-          height={600}
-          width={600}
-          className="absolute z-10 w-full h-full pointer-events-none"
-        />
+        {transcript == "" ? (
+          <>
+            <canvas
+              ref={canvasRef}
+              height={600}
+              width={600}
+              className="absolute z-10 w-full h-full pointer-events-none"
+            />
+            {!isRecording && (
+              <div className="w-full h-full flex justify-center items-center p-10 pointer-events-none select-none">
+                <h1 className="font-medium z-10 text-primary text-xl pointer-events-none">
+                  Press{" "}
+                  <span className="font-bold inline-flex items-center">
+                    Record
+                    <Svg src="record.svg" className="w-[24px]" />
+                  </span>{" "}
+                  to begin recording.
+                </h1>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="w-full h-full flex justify-center items-center p-10 pointer-events-none select-none">
+            <h1 className="font-medium z-10 text-primary text-xl pointer-events-none">
+              <Tooltip text="Pl" />
+              ease call Stella. <Tooltip text="Ask" /> her to bring these{" "}
+              <Tooltip text="th" />
+              ings with her from the store.
+            </h1>
+          </div>
+        )}
       </div>
       <div className="flex gap-2 items-center justify-center my-4 bg-cardback p-2 rounded-2xl border-1 border-outline">
         <Button
           text="Record"
+          icon="record.svg"
           className="flex-1"
           // accent="green"
           onClick={handleRecordClick}
@@ -144,6 +179,7 @@ export default function MicButton() {
         />
         <Button
           text="Stop"
+          icon="stop.svg"
           className="w-[8rem]"
           accent="red"
           onClick={handleStopClick}

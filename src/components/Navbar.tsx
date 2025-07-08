@@ -13,15 +13,21 @@ export default function Navbar() {
         // style={{ boxShadow: "0px 3px 10px -3px var(--light-shadow)" }}
       >
         <Link to={"/"}>Kotoba</Link>
-        <Link to={"/reader"} className="text-xs">
-          Reader
+        <Link to={"/record"} className="text-xs">
+          Record
+        </Link>
+        <Link to={"/record"} className="text-xs">
+          Library
+        </Link>
+        <Link to={"/record"} className="text-xs">
+          Help
         </Link>
 
         <div className="ml-auto">
           <UserIcon user={user} />
         </div>
 
-        {user && <Chip text={user.language} />}
+        {user && <Chip text={user.language} icon="uk.svg" />}
       </div>
     </nav>
   );
