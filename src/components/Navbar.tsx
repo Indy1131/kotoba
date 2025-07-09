@@ -16,6 +16,12 @@ export default function Navbar() {
         <Link to={"/record"} className="text-xs">
           Record
         </Link>
+        <Link to={"/formants"} className="text-xs">
+          Formants
+        </Link>
+        <Link to={"/realtime-formants"} className="text-xs">
+          Real-time
+        </Link>
         <Link to={"/record"} className="text-xs">
           Library
         </Link>
