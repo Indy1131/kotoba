@@ -14,7 +14,7 @@ export const startRecognition = (setTranscript, recognitionRef) => {
   recognition.onresult = (event) => {
     const text = event.results[event.results.length - 1][0].transcript;
     console.log(text);
-    setTranscript((prev) => prev + " " + text);
+    // setTranscript((prev) => prev + " " + text);
   };
 
   recognition.start();
