@@ -23,9 +23,19 @@ export default function Reader() {
         </div>
         <Button icon="settings.svg" />
       </div>
+
+    <div className="flex w-full h-full flex-col gap-6 items-center justify-center bg-white p-8 rounded-lg shadow-md">
+      <h1 className="text-4xl font-extrabold text-gray-800 mb-2">
+        Hello, <span className="text-blue-600">{user.username}</span>!
+      </h1>
+      <h2 className="text-xl font-semibold text-gray-600 mb-4">
+        You've selected <span className="text-green-600 font-bold">{user.language}</span> as your target language.
+      </h2>
+      <div className="border-b w-1/2 mb-6" />
       <div className="w-full flex-1 flex justify-center items-center">
         <MicButton />
       </div>
+    </div>
     </div>
   );
 }

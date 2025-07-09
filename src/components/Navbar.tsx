@@ -12,7 +12,7 @@ export default function Navbar() {
         className="bg-cardback flex gap-4 items-center text-black w-[min(calc(100%-64px),1000px)] py-2 rounded-full px-6 border-1 border-outline"
         // style={{ boxShadow: "0px 3px 10px -3px var(--light-shadow)" }}
       >
-        <Link to={"/"}>Kotoba</Link>
+        <Link to={"/about"}>Kotoba</Link>
         <Link to={"/record"} className="text-xs">
           Record
         </Link>
