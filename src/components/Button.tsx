@@ -34,10 +34,10 @@ export default function Button({
       } disabled:brightness-80 border-b-4 disabled:border-b-1 active:border-b-1 disabled:mt-[3px] active:mt-[3px] rounded-xl transition-all`}
       disabled={disabled}
     >
-      <p className="flex items-center justify-center">
+      <div className="flex items-center justify-center">
         {text}
         {icon && <Svg className={text ? "ml-1" : "mx-1"} src={icon} />}
-      </p>
+      </div>
     </button>
   );
 }

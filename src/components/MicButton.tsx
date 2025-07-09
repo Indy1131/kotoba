@@ -59,7 +59,7 @@ export default function MicButton() {
         const x = i * segmentWidth;
 
         const padding = 50;
-        let y = height / 1 - (volume + 0.5) * height * 0.3;
+        let y = height / 2 - (volume + 0.5) * height * 0.3;
 
         // Clamp y to fit inside the canvas (with padding)
         // y = Math.min(Math.max(y, padding), height - padding);
