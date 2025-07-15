@@ -4,12 +4,12 @@ import Footer from "../components/Footer";
 
 export default function Layout() {
   return (
-    <div className="relative flex flex-col w-screen h-screen min-w-full bg-gradient-to-br from-blue-900 via-purple-900 to-blue-800">
+    <div className="relative flex flex-col w-screen h-screen bg-gradient-to-t from-highlight to-page">
+      {/* <div className="w-full h-full absolute bg-purple-400/50 z-100" /> */}
       <Navbar />
-      <div className="flex-1">
+      <div className="relative w-full flex-1 overflow-y-scroll">
         <Outlet />
       </div>
-      {/* <div className=" top-0 h-[12px] w-full bg-red-500" /> */}
       <Footer />
     </div>
   );

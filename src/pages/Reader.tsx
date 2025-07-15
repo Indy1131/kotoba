@@ -25,7 +25,7 @@ export default function Reader() {
         <Button icon="settings.svg" />
       </div>
 
-      <div className="flex w-full flex-1 flex-col gap-6 items-center justify-center p-8 rounded-lg shadow-md">
+      <div className="flex w-full flex-1 flex-col gap-6 items-center justify-center p-8 shadow-md">
         <div className="w-full flex-1 flex justify-center items-center">
           <MicButton />
         </div>

@@ -24,7 +24,7 @@ export default function Chip({
 
   return (
     <div
-      className={`${className} flex  items-center gap-1 bg-gradient-to-l ${from} ${to} border-1 rounded-full text-sm ${textColor} px-2 cursor-pointer`}
+      className={`${className} flex text-nowrap items-center gap-1 bg-gradient-to-l ${from} ${to} border-1 rounded-full text-sm ${textColor} px-2 cursor-pointer`}
     >
       <div>{text}</div>
       {icon && <Svg src={icon} />}

@@ -1,16 +1,19 @@
-import IpaChart from "./IpaChart"
+import Chip from "./Chip";
+import IpaChart from "./IpaChart";
 
 interface SeeProps {
-    startAnimation?: boolean;
+  startAnimation?: boolean;
 }
 
 export default function See({ startAnimation = false }: SeeProps) {
-    return(
-        <div className="flex-1 bg-gradient-to-br from-blue-800/20 to-purple-800/20 rounded-lg p-6 border border-blue-500/30 font-['Helvetica']">
-            <h3 className="text-2xl font-bold text-white mb-4">See it</h3>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <IpaChart startAnimation={startAnimation} />
-            </div>
-        </div>
-    )
+  return (
+    <div className="h-full flex-1 bg-light border-light-outline rounded-lg p-6 border font-['Helvetica']">
+      <h3 className="px-2 py-1 rounded-xl border-1 border-light-outline text-2xl font-bold text-black mb-4">
+        See it.
+      </h3>
+      <div className="border-1 border-primary backdrop-blur-sm rounded-lg p-4 bg-gradient-to-t from-midlight to-highlight">
+        <IpaChart startAnimation={startAnimation} />
+      </div>
+    </div>
+  );
 }

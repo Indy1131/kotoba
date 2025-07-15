@@ -47,8 +47,8 @@ export default function MicButton() {
 
       ctx.clearRect(0, 0, width, height);
       ctx.beginPath();
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "#409af5";
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "#2E69FF";
 
       const points: [number, number][] = [];
       const segmentWidth = width / (POINT_COUNT - 1);
@@ -59,7 +59,7 @@ export default function MicButton() {
         const x = i * segmentWidth;
 
         const padding = 50;
-        let y = height / 2 - (volume + 0.5) * height * 0.3;
+        let y = height / 4 - volume * height * 0.3;
 
         // Clamp y to fit inside the canvas (with padding)
         // y = Math.min(Math.max(y, padding), height - padding);
@@ -133,8 +133,8 @@ export default function MicButton() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="inline-block">
-      <div className="overflow-hidden w-[600px] h-[600px] relative bg-gradient-to-t from-midlight rounded-2xl to-highlight border-primary border-1">
+    <form onSubmit={handleSubmit} className="h-full flex flex-col">
+      <div className="flex justify-center items-center overflow-hidden w-[600px] max-h-[600px] h-full relative bg-gradient-to-t from-midlight rounded-2xl to-highlight border-primary border-1">
         <Flashlight className="rounded-2xl z-10" color="white" />
         {transcript == "" ? (
           <>
@@ -142,7 +142,7 @@ export default function MicButton() {
               ref={canvasRef}
               height={600}
               width={600}
-              className="absolute z-10 w-full h-full pointer-events-none"
+              className="absolute z-10 pointer-events-none"
             />
             {!isRecording && (
               <div className="w-full h-full flex justify-center items-center p-10 pointer-events-none select-none">
