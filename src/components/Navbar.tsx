@@ -23,6 +23,9 @@ export default function Navbar() {
         <Link to={"/record"} className="text-sm">
           Record
         </Link>
+        <Link to={"/realtime-formants"} className="text-sm">
+          Real-Time Analysis
+        </Link>
         <Link to={"/record"} className="text-sm">
           Library
         </Link>
