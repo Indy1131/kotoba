@@ -52,8 +52,8 @@ export default function Perfect({ startAnimation = false }: PerfectProps) {
       <h3 className="px-2 py-1 rounded-xl border-1 border-light-outline text-2xl font-bold text-black mb-4">
         Perfect it.
       </h3>
-      <div className="bg-gradient-to-t from-midlight to-highlight backdrop-blur-sm rounded-lg p-4 border border-primary mb-4">
-        <div className="text-primary text-lg">
+      <div className="bg-gradient-to-t from-midlight to-highlight backdrop-blur-sm rounded-lg p-6 border w-full border-primary mb-4">
+        <div className="text-primary text-lg px-2 py-2">
           <motion.div
             animate={
               greenParts[0] && greenParts[1] ? { opacity: 0 } : { opacity: 1 }
