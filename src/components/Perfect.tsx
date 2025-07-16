@@ -50,7 +50,7 @@ export default function Perfect({ startAnimation = false }: PerfectProps) {
   return (
     <div className="h-full flex-1 bg-light rounded-lg p-6 border border-light-outline">
       <h3 className="px-2 py-1 rounded-xl border-1 border-light-outline text-2xl font-bold text-black mb-4">
-        See it.
+        Perfect it.
       </h3>
       <div className="bg-gradient-to-t from-midlight to-highlight backdrop-blur-sm rounded-lg p-4 border border-primary mb-4">
         <div className="text-primary text-lg">
